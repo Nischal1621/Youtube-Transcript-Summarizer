@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarized Text</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            box-shadow: #333;
+            background-image: url(pexels-bess-hamiti-36487.jpg);
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        h1 {
+            color:white;
+        }
+
+        #summarizedText {
+            width: 97%;
+            height: 300px; /* Increase the height as needed */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
+            overflow: auto; /* or overflow: hidden; */
+            resize: none; /* Disable textarea resizing */
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <h1>Summarized Text</h1>
+
+    <div>
+        <!-- Retrieve the summarized text from localStorage and display it -->
+        <textarea id="summarizedText" readonly></textarea>
+    </div>
+    <script>
+        // Retrieve the summarized text from localStorage and display it
+        const summarizedText = localStorage.getItem('summarizedText');
+        const summarizedTextArea = document.getElementById('summarizedText');
+        summarizedTextArea.value = summarizedText;
+    
+        // Retrieve the user details from localStorage
+        const username = localStorage.getItem('username');
+        const password = localStorage.getItem('password');
+    
+        // Retrieve the review from localStorage
+        const reviewContent = localStorage.getItem('reviewContent');
+    
+        // Display the user details and review
+        const reviewsList = document.getElementById('reviewsList');
+        const reviewElement = document.createElement('li');
+        reviewElement.innerHTML = `<strong>${username}:</strong> ${reviewContent}`;
+        reviewsList.appendChild(reviewElement);
+    </script>
+</body>
+</html>

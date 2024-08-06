@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcript Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            background-image: url(pexels-bess-hamiti-36487.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.5cm;
+            
+        }
+
+        h2 ,label {
+            text-align: center;
+            margin-top: 20px;
+            font-family: brush script mt,cursive;
+            font-size: 1cm;
+        }
+    
+        #inputSection {
+            max-width: 550px;
+            margin: 50px auto; /* Adjust margin for spacing */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align the content */
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            resize: vertical; /* Allow vertical resizing */
+        }
+    
+        input[type="number"] {
+            width: 130px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            width: 150px;
+            padding: 10px;
+            margin-left: 10px;
+            color: #fff;
+            background-color: rgb(220, 3, 112);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    
+        button:hover {
+            background-color: #960354;
+        }
+        #summarizedText {
+            width: 100%;
+            height: 270px; /* Increase the height as needed */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Adjust margin-top */
+            overflow: auto; /* Enable scrolling for textarea */
+            resize: none; /* Disable textarea resizing */
+        }
+        #Container1 {
+            max-width: 1000px;
+            margin: 50px auto; /* Adjust margin for spacing */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+            text-align: center; /* Center align the content */
+            display: flex;
+            justify-content: space-around; /* Align plans side by side */
+        }
+
+        textarea {
+            resize: none;
+        }
+    
+        .text {
+            width: 30%; /* Adjust width of each plan */
+            padding: 20px;
+            margin: 10px;
+            color: black;
+            background-color: #fff;
+            border-radius: 10px;
+            
+        }
+
+        .text h2 {
+            color: #007bff;
+        }
+
+        .text ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .text li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paste YouTube video link below</h1>
+    <div id="inputSection">
+        <label for="transcriptInput">YouTube Transcript:</label>
+        <textarea id="transcriptInput" rows="6" placeholder="Enter YouTube transcript"></textarea>
+        <input type="number" id="wordLimitInput" placeholder="Word Limit">
+        <button id="summarizeButton" onclick="summarize()">summarize</button>
+    </div>
+    <div id="Container1">
+        <div class="text">
+            <img src="tech.png" alt="Your Image" style="max-width: 40%; margin-top: 10px;">
+            <h2>Technology</h2>
+            <ul>
+                <p>Our AI uses natural language processing to grab critical information while maintaining the original context.</p>
+            </ul>
+        </div>
+        
+        <div class="text">
+            <img src="safe.png" alt="Your Image" style="max-width: 40%; margin-top: 10px;">
+            <h2>Total Safety</h2>
+            <ul>
+                <p>The texts you check are not saved in the system or used anywhere for the purposes of third parties.</p>
+            </ul>
+            
+        </div>
+
+        <div class="text">
+            <img src="time-management.png" alt="Your Image" style="max-width: 40%; margin-top: 10px;">
+            <h2>Save Time</h2>
+            <ul>
+                <p>If you do not have time to watch long videos, You can summarize them with one click.</p>
+            </ul>
+            
+        </div>
+    </div>
+    <h2>Summary:</h2>
+    <div>
+        <!-- Retrieve the summarized text from localStorage and display it -->
+        <textarea id="summarizedText" readonly></textarea>
+    </div>
+
+    <script>
+        function summarize() {
+            // Add logic to fetch and process YouTube transcript on the server-side
+            // Update the #summarizedText textarea with the summarized content
+            const summarizedText = document.getElementById('summarizedText');
+            const transcriptInput = document.getElementById('transcriptInput').value;
+            summarizedText.value = transcriptInput;
+
+            // Save the summarized text to localStorage for retrieval on the new page
+           // localStorage.setItem('summarizedText', summarizedText.value);
+        }
+
+        // Retrieve the summarized text from localStorage and display it
+        const summarizedText = localStorage.getItem('summarizedText');
+        const summarizedTextArea = document.getElementById('summarizedText');
+    </script>
+</body>
+</html>
