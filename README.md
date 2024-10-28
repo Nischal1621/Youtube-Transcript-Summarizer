@@ -12,7 +12,7 @@ Displays the summary in a popup.
 
 Frontend: HTML, CSS, JavaScript
 
-Backend: API for extracting transcripts (to be integrated separately)
+Backend: API for extracting transcripts (to be integrated separately),MongoDB 
 
 **Prerequisites**
 
